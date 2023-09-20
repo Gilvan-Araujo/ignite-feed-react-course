@@ -1,8 +1,11 @@
+import styles from "./App.module.css";
+import { Sidebar } from "./components/Sidebar";
+import { Post, PostType } from "./components/Post";
 import Header from "./components/Header";
 import "./global.css";
 import { createId } from "@paralleldrive/cuid2";
 
-const posts = [
+const posts: PostType[] = [
   {
     id: createId(),
     author: {
@@ -59,9 +62,6 @@ const posts = [
   },
 ];
 
-import styles from "./App.module.css";
-import { Sidebar } from "./components/Sidebar";
-import { Post } from "./components/Post";
 
 function App() {
   return (
@@ -75,10 +75,7 @@ function App() {
           {posts.map((post) => {
             return (
               <Post
-                author={post.author}
-                content={post.content}
-                publishedAt={post.publishedAt}
-                key={post.id}
+              post={post}
               />
             );
           })}
